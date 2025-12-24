@@ -1,0 +1,18 @@
+# Virtual environment
+venv/
+__pycache__/
+
+# Data (NEVER PUSH DATA)
+data/
+*.tar.gz
+*.zip
+*.gz
+
+# Logs & checkpoints
+*.pt
+*.pth
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

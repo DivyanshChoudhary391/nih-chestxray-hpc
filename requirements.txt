@@ -1,0 +1,7 @@
+torch
+torchvision
+pandas
+numpy
+opencv-python
+tqdm
+requests
