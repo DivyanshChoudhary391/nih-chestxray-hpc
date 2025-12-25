@@ -11,7 +11,11 @@ def evaluate(model, dataloader, criterion):
     all_outputs = []
 
     for images, labels in dataloader:
+        images = images.to(next(model.parameters()).device)
+        labels = labels.to(next(model.parameters()).device)
+
         outputs = model(images)
+
         loss = criterion(outputs, labels)
 
         total_loss += loss.item()

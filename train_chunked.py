@@ -29,6 +29,9 @@ perf_logger = PerformanceLogger("performance_cpu.csv")
 # Windows-safe
 NUM_WORKERS = 0
 # ----------------------------------------
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print("Using device:", device)
+
 
 os.makedirs(TEMP_DIR, exist_ok=True)
 
@@ -44,7 +47,7 @@ if len(archives) == 0:
 print(f"Found {len(archives)} archives")
 
 # Model & optimizer
-model = create_model()
+model = create_model().to(device)
 criterion = nn.BCEWithLogitsLoss()
 optimizer = optim.Adam(model.parameters(), lr=1e-4)
 
@@ -109,6 +112,9 @@ for idx in range(start_chunk, len(archives)):
     for epoch in range(EPOCHS_PER_CHUNK):
         running_loss = 0.0
         for images, labels in train_loader:
+            images = images.to(device)
+            labels = labels.to(device)
+
             outputs = model(images)
             loss = criterion(outputs, labels)
 

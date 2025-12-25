@@ -21,4 +21,8 @@ Thumbs.db
 checkpoints/
 *.pt
 *.pth
+*.csv
+
+# Temporary debug / sanity scripts
+test_*.py
 
