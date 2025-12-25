@@ -1,0 +1,31 @@
+==========================================
+SLURM_CLUSTER_NAME = paramutkarsh
+SLURM_ARRAY_JOB_ID = 
+SLURM_ARRAY_TASK_ID = 
+SLURM_ARRAY_TASK_COUNT = 
+SLURM_ARRAY_TASK_MAX = 
+SLURM_ARRAY_TASK_MIN = 
+SLURM_JOB_ACCOUNT = cdac
+SLURM_JOB_ID = 40298
+SLURM_JOB_NAME = nih_xray_gpu
+SLURM_JOB_NODELIST = gpu005
+SLURM_JOB_USER = chuk303
+SLURM_JOB_UID = 23359
+SLURM_JOB_PARTITION = gpu
+SLURM_TASK_PID = 19742
+SLURM_SUBMIT_DIR = /home/chuk303/nih-chestxray-hpc
+SLURM_CPUS_ON_NODE = 8
+SLURM_NTASKS = 
+SLURM_TASK_PID = 19742
+==========================================
+Using device: cuda
+Found 1 archives
+Resuming from chunk index 0
+
+=== Processing images_001.tar.gz (chunk 1/1) ===
+Train samples in chunk: 3527
+Val samples in chunk: 705
+Chunk 1 | Epoch 1 | Avg Loss: 0.2105
+[PERF] Chunk 1: 190.14s, 18.55 images/sec
+[VAL] Chunk 1: Loss = 0.1689, ROC-AUC = 0.6153
+Checkpoint saved

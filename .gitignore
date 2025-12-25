@@ -26,3 +26,5 @@ checkpoints/
 # Temporary debug / sanity scripts
 test_*.py
 
+.kaggle
+

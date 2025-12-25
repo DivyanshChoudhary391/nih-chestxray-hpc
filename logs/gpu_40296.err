@@ -1,0 +1,64 @@
+/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/_utils.py:209: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  f"The parameter '{pretrained_param}' is deprecated since 0.13 and may be removed in the future, "
+/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DenseNet121_Weights.IMAGENET1K_V1`. You can also use `weights=DenseNet121_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /home/chuk303/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth
+Traceback (most recent call last):
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/urllib/request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/http/client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/http/client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/http/client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/http/client.py", line 1406, in connect
+    super().connect()
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/http/client.py", line 938, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train_chunked.py", line 50, in <module>
+    model = create_model().to(device)
+  File "/home/chuk303/nih-chestxray-hpc/model.py", line 5, in create_model
+    model = models.densenet121(pretrained=True)
+  File "/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/_utils.py", line 142, in wrapper
+    return fn(*args, **kwargs)
+  File "/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/_utils.py", line 228, in inner_wrapper
+    return builder(*args, **kwargs)
+  File "/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/densenet.py", line 363, in densenet121
+    return _densenet(32, (6, 12, 24, 16), 64, weights, progress, **kwargs)
+  File "/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/densenet.py", line 255, in _densenet
+    _load_state_dict(model=model, weights=weights, progress=progress)
+  File "/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/densenet.py", line 231, in _load_state_dict
+    state_dict = weights.get_state_dict(progress=progress)
+  File "/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/_api.py", line 66, in get_state_dict
+    return load_state_dict_from_url(self.url, progress=progress)
+  File "/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torch/hub.py", line 731, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torch/hub.py", line 597, in download_url_to_file
+    u = urlopen(req)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/urllib/request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/urllib/request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>

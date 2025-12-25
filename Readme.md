@@ -1,12 +1,14 @@
-# NIH Chest X-ray Classification (CPU Baseline)
+## NIH Chest X-ray HPC Training Pipeline
 
-This project implements a multi-label chest X-ray disease classifier
-using DenseNet-121.
+This project implements a scalable deep learning pipeline for
+multi-label chest X-ray disease classification using DenseNet-121.
 
-## Stage 1
-- CPU-only training
-- Correctness validation
+### Key Features
+- Real NIH Chest X-ray data
+- CPU baseline validation
+- Chunk-wise dataset ingestion
+- Designed for GPU and multi-GPU (HPC)
 
-Next stages:
-- GPU acceleration
-- Multi-GPU distributed training
+### Data
+Raw data is excluded from this repository due to size constraints.
+

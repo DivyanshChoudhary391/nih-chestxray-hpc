@@ -1,0 +1,13 @@
+libpng warning: iCCP: profile 'ICC Profile': 'GRAY': Gray color space not permitted on RGB PNG
+/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/_utils.py:209: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  f"The parameter '{pretrained_param}' is deprecated since 0.13 and may be removed in the future, "
+/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "train_chunked.py", line 160, in <module>
+    shutil.rmtree("data/temp")
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/shutil.py", line 504, in rmtree
+    onerror(os.path.islink, path, sys.exc_info())
+  File "/home/apps/cdac/DL/DL-CondaPy3.7/lib/python3.7/shutil.py", line 502, in rmtree
+    raise OSError("Cannot call rmtree on a symbolic link")
+OSError: Cannot call rmtree on a symbolic link

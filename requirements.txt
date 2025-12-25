@@ -2,7 +2,7 @@ torch
 torchvision
 pandas
 numpy
-opencv-python
+opencv-python-headless
 tqdm
 requests
 scikit-learn
