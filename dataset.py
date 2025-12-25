@@ -21,9 +21,16 @@ class ChestXrayDataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.df.iloc[idx]
-
         img_path = os.path.join(self.image_dir, row["Image"])
+
         img = cv2.imread(img_path)
+
+        # ---- CRITICAL FIX ----
+        if img is None:
+            # Skip corrupted image by returning a different valid sample
+            return self.__getitem__((idx + 1) % len(self.df))
+        # ----------------------
+
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         img = cv2.resize(img, (224, 224))
         img = img / 255.0
@@ -34,4 +41,5 @@ class ChestXrayDataset(Dataset):
         label = torch.tensor(label)
 
         return img, label
+
 

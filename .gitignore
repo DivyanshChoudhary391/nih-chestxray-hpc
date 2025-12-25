@@ -16,3 +16,9 @@ data/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Checkpoints
+checkpoints/
+*.pt
+*.pth
+
