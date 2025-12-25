@@ -5,3 +5,4 @@ numpy
 opencv-python
 tqdm
 requests
+scikit-learn
