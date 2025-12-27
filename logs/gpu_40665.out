@@ -1,0 +1,34 @@
+==========================================
+SLURM_CLUSTER_NAME = paramutkarsh
+SLURM_ARRAY_JOB_ID = 
+SLURM_ARRAY_TASK_ID = 
+SLURM_ARRAY_TASK_COUNT = 
+SLURM_ARRAY_TASK_MAX = 
+SLURM_ARRAY_TASK_MIN = 
+SLURM_JOB_ACCOUNT = cdac
+SLURM_JOB_ID = 40665
+SLURM_JOB_NAME = nih_xray_gpu
+SLURM_JOB_NODELIST = gpu005
+SLURM_JOB_USER = chuk303
+SLURM_JOB_UID = 23359
+SLURM_JOB_PARTITION = gpu
+SLURM_TASK_PID = 38055
+SLURM_SUBMIT_DIR = /home/chuk303/nih-chestxray-hpc
+SLURM_CPUS_ON_NODE = 8
+SLURM_NTASKS = 
+SLURM_TASK_PID = 38055
+==========================================
+Downloading dataset chunk from Google Drive...
+Processing Drive file: 1TFJYnoq37wukrjKyyh6aYd8o1R4nLQ2e
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+Using device: cuda
+Processing Drive file: 1u3uH1mt41UGWK2cixtyO0VNiIE30_ckk
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+Using device: cuda
+Using device: cuda

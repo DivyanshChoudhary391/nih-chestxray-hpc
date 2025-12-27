@@ -1,0 +1,55 @@
+==========================================
+SLURM_CLUSTER_NAME = paramutkarsh
+SLURM_ARRAY_JOB_ID = 
+SLURM_ARRAY_TASK_ID = 
+SLURM_ARRAY_TASK_COUNT = 
+SLURM_ARRAY_TASK_MAX = 
+SLURM_ARRAY_TASK_MIN = 
+SLURM_JOB_ACCOUNT = cdac
+SLURM_JOB_ID = 40813
+SLURM_JOB_NAME = nih_xray_gpu
+SLURM_JOB_NODELIST = gpu006
+SLURM_JOB_USER = chuk303
+SLURM_JOB_UID = 23359
+SLURM_JOB_PARTITION = gpu
+SLURM_TASK_PID = 16253
+SLURM_SUBMIT_DIR = /home/chuk303/nih-chestxray-hpc
+SLURM_CPUS_ON_NODE = 8
+SLURM_NTASKS = 
+SLURM_TASK_PID = 16253
+==========================================
+Downloading dataset chunk from Google Drive...
+Processing Drive file: 1TFJYnoq37wukrjKyyh6aYd8o1R4nLQ2e
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+Using device: cuda
+Resuming from chunk index 1
+Train samples: 6837
+Val samples: 1587
+Epoch 1 | Avg Loss: 0.1829
+[PERF] 145.11s | 47.12 images/sec
+[VAL] Loss = 0.1866 | ROC-AUC = 0.6368
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+Processing Drive file: 1u3uH1mt41UGWK2cixtyO0VNiIE30_ckk
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 7121
+Using device: cuda
+Resuming from chunk index 2
+Train samples: 5079
+Val samples: 1001
+Epoch 1 | Avg Loss: 0.1825
+[PERF] 76.23s | 66.63 images/sec
+[VAL] Loss = 0.1808 | ROC-AUC = 0.6858
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.

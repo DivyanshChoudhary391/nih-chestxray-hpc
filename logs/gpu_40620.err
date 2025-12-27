@@ -1,0 +1,16 @@
+/home/chuk303/nih-chestxray-hpc/venv/lib/python3.7/site-packages/gdown/cli.py:142: FutureWarning: Option `--id` was deprecated in version 4.3.1 and will be removed in 5.0. You don't need to pass it anymore to use a file ID.
+  category=FutureWarning,
+Failed to retrieve file url:
+
+	Cannot retrieve the public link of the file. You may need to change
+	the permission to 'Anyone with the link', or have had many accesses.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=PASTE_YOUR_FILE_ID_HERE
+
+but Gdown can't. Please check connections and permissions.
+  File "train_chunked.py", line 165
+    for f in os.listdir(ARCHIVE_DIR):
+                                    ^
+TabError: inconsistent use of tabs and spaces in indentation

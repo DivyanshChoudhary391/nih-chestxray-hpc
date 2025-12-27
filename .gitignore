@@ -28,3 +28,4 @@ test_*.py
 
 .kaggle
 
+.env

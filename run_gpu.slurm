@@ -15,5 +15,20 @@ module load cuda
 cd ~/nih-chestxray-hpc
 source venv/bin/activate
 
+echo "Downloading dataset chunk from Google Drive..."
+
+set -a
+source .env
+set +a
+
+
+for FILE_ID in $NIH_DRIVE_FILE_IDS; do
+    echo "Processing Drive file: $FILE_ID"
+    bash download_from_drive.sh "$FILE_ID"
+    python train_chunked.py
+done
+
+
+
 python train_chunked.py
 

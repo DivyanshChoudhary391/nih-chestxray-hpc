@@ -1,7 +1,5 @@
 import os
-import tarfile
 import shutil
-import pandas as pd
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -14,103 +12,91 @@ from performance_logger import PerformanceLogger
 from evaluation import evaluate
 
 
-
 # ---------------- CONFIG ----------------
-ARCHIVE_DIR = "data/archives"
-TEMP_DIR = "data/temp/images"
+TEMP_IMAGES_DIR = "/scratch/chuk303/nih_chestxray/data/temp/images"
 LABELS_CSV = "data/labels.csv"
+SPLIT_FILE = "data/split.csv"
 
 BATCH_SIZE = 8
 EPOCHS_PER_CHUNK = 1
-# CHECKPOINT_PATH = "checkpoint.pt"
-perf_logger = PerformanceLogger("performance_cpu.csv")
+NUM_WORKERS = 2
+
+CHECKPOINT_PATH = "checkpoint.pt"
+PERF_LOG_PATH = "performance_gpu.csv"
+# --------------------------------------
 
 
-# Windows-safe
-NUM_WORKERS = 0
-# ----------------------------------------
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print("Using device:", device)
+def main():
+    # --------- Sanity Check ----------
+    if not os.path.isdir(TEMP_IMAGES_DIR):
+      print("[INFO] No images staged. Skipping run.")
+      return
 
+    num_images = len(os.listdir(TEMP_IMAGES_DIR))
+    if num_images == 0:
+      print("[INFO] No images staged. Skipping run.")
+      return
 
-os.makedirs(TEMP_DIR, exist_ok=True)
+    print(f"[INFO] Images staged for training: {num_images}")
 
-# List archives
-archives = sorted([
-    f for f in os.listdir(ARCHIVE_DIR)
-    if f.endswith(".tar.gz")
-])
+    # --------- Device ----------
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
 
-if len(archives) == 0:
-    raise RuntimeError("No archives found in data/archives")
+    # --------- Model ----------
+    model = create_model()
+    model = model.to(device)
 
-print(f"Found {len(archives)} archives")
+    criterion = nn.BCEWithLogitsLoss()
+    optimizer = optim.Adam(model.parameters(), lr=1e-4)
 
-# Model & optimizer
-model = create_model().to(device)
-criterion = nn.BCEWithLogitsLoss()
-optimizer = optim.Adam(model.parameters(), lr=1e-4)
+    # --------- Resume ----------
+    start_chunk = load_checkpoint(model, optimizer)
+    print(f"Resuming from chunk index {start_chunk}")
 
-# Resume if checkpoint exists
-start_chunk = load_checkpoint(model, optimizer)
-print(f"Resuming from chunk index {start_chunk}")
-
-
-# ---------------- TRAIN LOOP ----------------
-
-
-for idx in range(start_chunk, len(archives)):
-    archive = archives[idx]
-    archive_path = os.path.join(ARCHIVE_DIR, archive)
-
-    print(f"\n=== Processing {archive} (chunk {idx+1}/{len(archives)}) ===")
-
-    # 1. Extract
-    with tarfile.open(archive_path, "r:gz") as tar:
-        tar.extractall("data/temp")
-
-    image_dir = TEMP_DIR
-
-    # 2. Dataset + loader
+    # --------- Datasets ----------
     train_ds = ChestXrayDataset(
         csv_file=LABELS_CSV,
-        image_dir=image_dir,
-        split_file="data/split.csv",
+        image_dir=TEMP_IMAGES_DIR,
+        split_file=SPLIT_FILE,
         split="train"
     )
 
     val_ds = ChestXrayDataset(
         csv_file=LABELS_CSV,
-        image_dir=image_dir,
-        split_file="data/split.csv",
+        image_dir=TEMP_IMAGES_DIR,
+        split_file=SPLIT_FILE,
         split="val"
     )
 
-    print(f"Train samples in chunk: {len(train_ds)}")
-    print(f"Val samples in chunk: {len(val_ds)}")
+    print(f"Train samples: {len(train_ds)}")
+    print(f"Val samples: {len(val_ds)}")
 
     train_loader = DataLoader(
         train_ds,
         batch_size=BATCH_SIZE,
         shuffle=True,
-        num_workers=NUM_WORKERS
+        num_workers=NUM_WORKERS,
+        pin_memory=True
     )
+
     val_loader = DataLoader(
         val_ds,
         batch_size=BATCH_SIZE,
         shuffle=False,
-        num_workers=NUM_WORKERS
+        num_workers=NUM_WORKERS,
+        pin_memory=True
     )
 
-
-
-
-    # 3. Train
-    model.train()
+    # --------- Training ----------
+    perf_logger = PerformanceLogger(PERF_LOG_PATH)
     perf_logger.start()
+
+    model.train()
 
     for epoch in range(EPOCHS_PER_CHUNK):
         running_loss = 0.0
+
         for images, labels in train_loader:
             images = images.to(device)
             labels = labels.to(device)
@@ -124,41 +110,32 @@ for idx in range(start_chunk, len(archives)):
 
             running_loss += loss.item()
 
-        print(
-            f"Chunk {idx+1} | Epoch {epoch+1} | "
-            f"Avg Loss: {running_loss/len(train_loader):.4f}"
-        )
+        avg_loss = running_loss / len(train_loader)
+        print(f"Epoch {epoch + 1} | Avg Loss: {avg_loss:.4f}")
 
     elapsed, throughput = perf_logger.end_and_log(
-        chunk_idx=idx + 1,
+        chunk_idx=start_chunk + 1,
         num_images=len(train_ds)
     )
 
-    print(
-        f"[PERF] Chunk {idx+1}: "
-        f"{elapsed:.2f}s, "
-        f"{throughput:.2f} images/sec"
-    )
+    print(f"[PERF] {elapsed:.2f}s | {throughput:.2f} images/sec")
 
-    # Evaluation on val set
+    # --------- Validation ----------
     val_loss, val_auc = evaluate(model, val_loader, criterion)
+    print(f"[VAL] Loss = {val_loss:.4f} | ROC-AUC = {val_auc:.4f}")
 
-    print(
-        f"[VAL] Chunk {idx+1}: "
-        f"Loss = {val_loss:.4f}, "
-        f"ROC-AUC = {val_auc:.4f}"
-    )
-
-
-
-
-    # 4. Save checkpoint
-    save_checkpoint(model, optimizer, idx + 1)
+    # --------- Save ----------
+    save_checkpoint(model, optimizer, start_chunk + 1)
     print("Checkpoint saved")
 
-    # 5. Cleanup
-    shutil.rmtree("data/temp")
-    os.makedirs(TEMP_DIR, exist_ok=True)
-    print("Temporary data deleted")
+    # --------- Cleanup ----------
+    print("[CLEANUP] Removing temp images...")
+    shutil.rmtree(TEMP_IMAGES_DIR, ignore_errors=True)
+    os.makedirs(TEMP_IMAGES_DIR, exist_ok=True)
 
-print("\nAll chunks processed successfully.")
+    print("\nAll chunks processed successfully.")
+
+
+if __name__ == "__main__":
+    main()
+

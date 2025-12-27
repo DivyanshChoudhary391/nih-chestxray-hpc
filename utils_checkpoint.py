@@ -2,7 +2,7 @@ import torch
 import os
 import json
 
-CHECKPOINT_DIR = "checkpoints"
+CHECKPOINT_DIR = "/scratch/chuk303/nih_chestxray/checkpoints/checkpoint"
 LATEST_PATH = os.path.join(CHECKPOINT_DIR, "latest.pt")
 
 os.makedirs(CHECKPOINT_DIR, exist_ok=True)
@@ -38,3 +38,5 @@ def load_checkpoint(model, optimizer):
     model.load_state_dict(ckpt["model_state"])
     optimizer.load_state_dict(ckpt["optimizer_state"])
     return ckpt["chunk_idx"]
+
+
