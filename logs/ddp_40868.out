@@ -1,0 +1,47 @@
+==========================================
+SLURM_CLUSTER_NAME = paramutkarsh
+SLURM_ARRAY_JOB_ID = 
+SLURM_ARRAY_TASK_ID = 
+SLURM_ARRAY_TASK_COUNT = 
+SLURM_ARRAY_TASK_MAX = 
+SLURM_ARRAY_TASK_MIN = 
+SLURM_JOB_ACCOUNT = cdac
+SLURM_JOB_ID = 40868
+SLURM_JOB_NAME = nih_xray_ddp
+SLURM_JOB_NODELIST = gpu005
+SLURM_JOB_USER = chuk303
+SLURM_JOB_UID = 23359
+SLURM_JOB_PARTITION = gpu
+SLURM_TASK_PID = 38108
+SLURM_SUBMIT_DIR = /home/chuk303/nih-chestxray-hpc
+SLURM_CPUS_ON_NODE = 8
+SLURM_NTASKS = 1
+SLURM_TASK_PID = 38108
+==========================================
+Using NIH_DRIVE_FILE_IDS=1TFJYnoq37wukrjKyyh6aYd8o1R4nLQ2e 1u3uH1mt41UGWK2cixtyO0VNiIE30_ckk
+==============================================
+Processing Drive file: 1TFJYnoq37wukrjKyyh6aYd8o1R4nLQ2e
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 3
+Train samples: 6837
+Val samples: 1587
+Epoch 1 | Avg Loss: 0.1794
+[PERF] 100.01s | 68.36 images/sec
+[VAL] Loss = 0.1840 | ROC-AUC = 0.6512
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1u3uH1mt41UGWK2cixtyO0VNiIE30_ckk
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] No images staged. Skipping run.
+ALL CHUNKS COMPLETED

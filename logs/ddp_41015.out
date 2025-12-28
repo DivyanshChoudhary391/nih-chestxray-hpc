@@ -1,0 +1,298 @@
+==========================================
+SLURM_CLUSTER_NAME = paramutkarsh
+SLURM_ARRAY_JOB_ID = 
+SLURM_ARRAY_TASK_ID = 
+SLURM_ARRAY_TASK_COUNT = 
+SLURM_ARRAY_TASK_MAX = 
+SLURM_ARRAY_TASK_MIN = 
+SLURM_JOB_ACCOUNT = cdac
+SLURM_JOB_ID = 41015
+SLURM_JOB_NAME = nih_xray_ddp
+SLURM_JOB_NODELIST = gpu006
+SLURM_JOB_USER = chuk303
+SLURM_JOB_UID = 23359
+SLURM_JOB_PARTITION = gpu
+SLURM_TASK_PID = 32075
+SLURM_SUBMIT_DIR = /home/chuk303/nih-chestxray-hpc
+SLURM_CPUS_ON_NODE = 8
+SLURM_NTASKS = 1
+SLURM_TASK_PID = 32075
+==========================================
+Using NIH_DRIVE_FILE_IDS=1_fHWgJOGYuBGXeH87wbHdpKnFIE7ulNi 1cUexyAkz-nD9T_7ws8IWyoUeDtPNxOe- 1wQVWX2RAndm7zZpr5vM3iMKIW8GOPfoQ 1IRlApyR0bGZjd0pKix6E52UELC2vsTgH 1R0oR8G5ugogrnIha-g6G2pz4cPi45K0S 1McOSR69Dr0RP4TK6j38aMvvIZhlbW_SD 1aI0a-8Rt1p-3qElbksSiP6Kug1qovhTF 13cRAjbgRumkH4R5z1b3N-QhAQRabCKU6 1DmO6sBOwzGRVusGrHvPB8WFZvXAHLpsR 1How5GXTYUCjox2Sz6PbIpQDtjhIzkXZL 17VjTGJs7_N5PcK3IpfInIyPc9pkYgL7u 18LN0Z-uBkDakft2HL4sCFlz-vJ6VkJah
+==============================================
+Processing Drive file: 1_fHWgJOGYuBGXeH87wbHdpKnFIE7ulNi
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 4999
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 4
+Train samples: 3527
+Val samples: 705
+Epoch 1 | Avg Loss: 0.1687
+Epoch 2 | Avg Loss: 0.1645
+Epoch 3 | Avg Loss: 0.1597
+[PERF] 77.72s | 45.38 images/sec
+[VAL] Loss = 0.1627 | ROC-AUC = 0.6809
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1cUexyAkz-nD9T_7ws8IWyoUeDtPNxOe-
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 5
+Train samples: 6956
+Val samples: 1511
+Epoch 1 | Avg Loss: 0.1500
+Epoch 2 | Avg Loss: 0.1452
+Epoch 3 | Avg Loss: 0.1438
+[PERF] 110.03s | 63.22 images/sec
+[VAL] Loss = 0.1486 | ROC-AUC = nan
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1wQVWX2RAndm7zZpr5vM3iMKIW8GOPfoQ
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 6
+Train samples: 6773
+Val samples: 1564
+Epoch 1 | Avg Loss: 0.1471
+Epoch 2 | Avg Loss: 0.1452
+Epoch 3 | Avg Loss: 0.1410
+[PERF] 109.25s | 61.99 images/sec
+[VAL] Loss = 0.1534 | ROC-AUC = nan
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1IRlApyR0bGZjd0pKix6E52UELC2vsTgH
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 7
+Train samples: 6887
+Val samples: 1517
+Epoch 1 | Avg Loss: 0.1537
+Epoch 2 | Avg Loss: 0.1522
+Epoch 3 | Avg Loss: 0.1500
+[PERF] 111.41s | 61.82 images/sec
+[VAL] Loss = 0.1626 | ROC-AUC = 0.7131
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1R0oR8G5ugogrnIha-g6G2pz4cPi45K0S
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 8
+Train samples: 7138
+Val samples: 1617
+Epoch 1 | Avg Loss: 0.1669
+Epoch 2 | Avg Loss: 0.1607
+Epoch 3 | Avg Loss: 0.1552
+[PERF] 109.86s | 64.97 images/sec
+[VAL] Loss = 0.1721 | ROC-AUC = nan
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1McOSR69Dr0RP4TK6j38aMvvIZhlbW_SD
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 9
+Train samples: 7258
+Val samples: 1212
+Epoch 1 | Avg Loss: 0.1674
+Epoch 2 | Avg Loss: 0.1649
+Epoch 3 | Avg Loss: 0.1587
+[PERF] 109.65s | 66.19 images/sec
+[VAL] Loss = 0.1707 | ROC-AUC = 0.6821
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1aI0a-8Rt1p-3qElbksSiP6Kug1qovhTF
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 10
+Train samples: 6837
+Val samples: 1587
+Epoch 1 | Avg Loss: 0.1708
+Epoch 2 | Avg Loss: 0.1628
+Epoch 3 | Avg Loss: 0.1576
+[PERF] 102.65s | 66.60 images/sec
+[VAL] Loss = 0.1784 | ROC-AUC = 0.7291
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 13cRAjbgRumkH4R5z1b3N-QhAQRabCKU6
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 11
+Train samples: 7426
+Val samples: 1423
+Epoch 1 | Avg Loss: 0.1827
+Epoch 2 | Avg Loss: 0.1624
+Epoch 3 | Avg Loss: 0.1604
+[PERF] 111.64s | 66.52 images/sec
+[VAL] Loss = 0.1959 | ROC-AUC = nan
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1DmO6sBOwzGRVusGrHvPB8WFZvXAHLpsR
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 12
+Train samples: 6957
+Val samples: 1555
+Epoch 1 | Avg Loss: 0.1820
+Epoch 2 | Avg Loss: 0.1652
+Epoch 3 | Avg Loss: 0.1586
+[PERF] 104.73s | 66.43 images/sec
+[VAL] Loss = 0.1809 | ROC-AUC = nan
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 1How5GXTYUCjox2Sz6PbIpQDtjhIzkXZL
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 13
+Train samples: 7165
+Val samples: 1583
+Epoch 1 | Avg Loss: 0.1570
+Epoch 2 | Avg Loss: 0.1488
+Epoch 3 | Avg Loss: 0.1412
+[PERF] 108.16s | 66.25 images/sec
+[VAL] Loss = 0.1713 | ROC-AUC = 0.7276
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 17VjTGJs7_N5PcK3IpfInIyPc9pkYgL7u
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 10000
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 14
+Train samples: 6705
+Val samples: 1483
+Epoch 1 | Avg Loss: 0.1603
+Epoch 2 | Avg Loss: 0.1508
+Epoch 3 | Avg Loss: 0.1431
+[PERF] 101.07s | 66.34 images/sec
+[VAL] Loss = 0.1552 | ROC-AUC = 0.7732
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+==============================================
+Processing Drive file: 18LN0Z-uBkDakft2HL4sCFlz-vJ6VkJah
+==============================================
+[CLEANUP] Removing old temp files...
+[INFO] Downloading dataset chunk from Google Drive...
+[INFO] Extracting chunk...
+[INFO] Chunk ready.
+[INFO] Images staged for training: 7121
+[INFO] Loading pretrained DenseNet weights from local file
+[INFO] Loading pretrained DenseNet weights from local file
+NCCL version 2.14.3+cuda11.7
+Resuming from chunk index 15
+Train samples: 5079
+Val samples: 1001
+Epoch 1 | Avg Loss: 0.1676
+Epoch 2 | Avg Loss: 0.1596
+Epoch 3 | Avg Loss: 0.1543
+[PERF] 77.29s | 65.72 images/sec
+[VAL] Loss = 0.1667 | ROC-AUC = 0.7658
+Checkpoint saved
+[CLEANUP] Removing temp images...
+
+All chunks processed successfully.
+ALL CHUNKS COMPLETED
